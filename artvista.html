@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Art Vista</title>
+    <style type="text/css">
+      body {
+        background-color: #FBEAEB;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+      }
+
+      .contents-logo {
+        color:  #2F3C7E;
+        text-align: center;
+      }
+
+      .nav-item {
+        padding: 0 20px;
+      }
+
+      .wrapper {
+        padding: 60px 0;
+      }
+
+      .menu2 {
+        background-color: black;
+      }
+
+      .menu3 {
+        line-height: 35px;
+        text-align: justify;
+      }
+
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+
+        .navbar {
+          position: fixed;
+          width: 100%;
+          z-index: 999;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+
+      .template-btn {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 12px 20px;
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+      }
+
+      .template-btn:hover {
+        color: white;
+        background: #f28500;
+      }
+
+      .portfolio-section {
+        transition: 1.3s;
+        box-sizing: border-box;
+        height: auto;
+      }
+
+      .portfolio-tab ul {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .portfolio-tab ul li {
+        color: #fff;
+        background: transparent;
+        display: inline;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 12px 16px;
+        border: 2px solid #e30b5d;
+        margin: 0 5px;
+        cursor: pointer;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      @media (max-width: 575.98px) {
+        .portfolio-tab ul li {
+          display: block;
+          margin: 10px auto;
+          max-width: 200px;
+        }
+      }
+
+      .portfolio-tab ul li:hover {
+        background: #e30b5d;
+        color: #fff
+      }
+
+      .portfolio-tab ul .active {
+        background: #e30b5d;
+        color: #fff
+      }
+
+      .clearfix:after {
+        display: table;
+        content: " ";
+        clear: both;
+      }
+
+      .portfolio-grid {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 300px;
+      }
+
+      @media (max-width: 768px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      @media only screen and (min-width: 768.1px) and (max-width: 991px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .portfolio-grid .portfolio {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        display: none;
+        overflow: hidden;
+      }
+
+      .portfolio-wrapper {
+        overflow: hidden;
+        position: relative !important;
+        cursor: pointer;
+      }
+
+      .portfolio-bg {
+        width: 100%;
+        height: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        transition: 1s;
+        transform: scale(1)
+      }
+
+      .portfolio:hover .portfolio-bg {
+        transform: scale(1.2)
+      }
+
+      .first .portfolio-bg {
+        background-image: url('https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?cs=srgb&dl=accounts-applications-apps-267350.jpg&fm=jpg');
+      }
+
+      .second .portfolio-bg {
+        background-image: url('https://images.pexels.com/photos/1053687/pexels-photo-1053687.jpeg?cs=srgb&dl=art-art-materials-artwork-1053687.jpg&fm=jpg');
+      }
+
+      .third .portfolio-bg {
+        background-image: url('https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?cs=srgb&dl=brainstorming-campaign-collaborate-6224.jpg&fm=jpg');
+      }
+
+      .portfolio .label {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        transition: 0.5s;
+        opacity: 0;
+        visibility: hidden
+      }
+
+      .portfolio .label-bg {
+        background: #232323;
+        opacity: 0.7;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 1px;
+      }
+
+      .portfolio .label-text {
+        color: #fff;
+        position: relative;
+        z-index: 500;
+        padding: 50px 20px;
+      }
+
+      .portfolio:hover .label {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .portfolio .text-category {
+        display: block;
+      }
+
+      .portfolio .template-btn {
+        background: #e30b5d;
+        border: 1px solid #e30b5d;
+        text-decoration: none;
+        margin-top: 20px;
+        font-weight: 500
+      }
+
+      /*//contact us*/
+      .form-main {
+        background: linear-gradient(to bottom, #00000024, #00000024),
+          url(https://res.cloudinary.com/dqifboxk5/image/upload/v1686209968/contact-us-2_y8zzx7.jpg) no-repeat center;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 0;
+      }
+
+      .main-wrapper {
+        border-radius: 10px;
+        padding: 45px;
+        width: 40%;
+        box-shadow: 0 0 5px 5px #00000020;
+        backdrop-filter: blur(5px);
+        background-color: #ffffff85;
+      }
+
+      @media screen and (max-width: 991px) {
+        .main-wrapper {
+          width: 70%;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 90%;
+      }
+
+      .form-head {
+        font-size: 30px;
+        line-height: 40px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0px 0 25px;
+      }
+
+      .form-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+
+        .form-card {
+          position: relative;
+          width: 100%;
+
+          .form-input {
+            padding: 20px 25px 15px;
+            width: 100%;
+            border: 1px solid $color-black;
+            border-radius: 5px;
+            background: transparent;
+            outline: none;
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 400;
+            box-sizing: border-box;
+
+            &:valid,
+            &:focus {
+              border: 1px solid $color-gray;
+            }
+
+            &:valid~.form-label,
+            &:focus~.form-label {
+              color: $color-gray;
+              top: 30%;
+              transform: translateY(-70%);
+              font-size: 13px;
+              line-height: 23px;
+            }
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active {
+              transition: background-color 9999s ease-in-out 0s;
+            }
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+
+          .form-label {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            transition: 0.3s;
+            margin: 0;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 500;
+          }
+
+          .form-textarea {
+            padding: 20px 25px 15px;
+            width: 100%;
+            border: 1px solid $color-black;
+            border-radius: 5px;
+            background: transparent;
+            outline: none;
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 400;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            resize: none;
+            box-sizing: border-box;
+
+            &:valid,
+            &:focus {
+              border: 1px solid $color-gray;
+            }
+
+            &:valid~.form-textarea-label,
+            &:focus~.form-textarea-label {
+              color: $color-gray;
+              top: 18%;
+              transform: translateY(-82%);
+              font-size: 13px;
+              line-height: 23px;
+            }
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active {
+              transition: background-color 9999s ease-in-out 0s;
+            }
+          }
+
+          .form-textarea-label {
+            position: absolute;
+            left: 25px;
+            top: 30%;
+            transform: translateY(-70%);
+            pointer-events: none;
+            transition: 0.3s;
+            margin: 0;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 500;
+          }
+        }
+      }
+      }
+      }
+
+      .btn-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 0 0;
+      }
+
+      .btn-wrap button {
+        padding: 0 32px;
+        font-size: 18px;
+        line-height: 48px;
+        border: 1px solid transparent;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        box-shadow: 0 0 5px 5px #00000020;
+      }
+
+      .btn-wrap button:hover {
+        border: 1px solid #000;
+        background: transparent;
+      }
+
+      .clr {
+        color: #fff;
+      }
+
+      .nav-item:focus .nav-link,
+      .nav-item:active .nav-link {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#artworks">Artworks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+      </div>
+    </nav>
+    <!--end of navigation -->
+    <body id="top">
+      <div class="container">
+        <!-- MENU1-->
+        <div class="wrapper menu1" role="main" id="home">
+          <div class="home">
+            <h2 class="contents-logo" itemprop="title">ArtVista</h2>
+            <blockquote class="blockquote">
+              <p class="mb-0">The artist is a receptacle for emotions that come from all over the place: from the sky, from the earth, from a scrap of paper, from a passing shape, from a spider's web.</p>
+              <footer class="blockquote-footer">Someone famous in <cite title="Source Title"> Pablo Picasso</cite>
+              </footer>
+            </blockquote>
+          </div>
+          <!-- END-->
+        </div>
+        <!-- MENU2-->
+        <div class="wrapper menu2" role="main" id="artworks">
+          <h2 class="contents-logo" itemprop="title">Artworks</h2>
+          <div class="artworks">
+            <section class="portfolio-section">
+              <div class="container">
+                <div class="row">
+                  <div class="offset-lg-3 col-lg-6 offset-lg-3">
+                    <p class="clr">Here are the snaps of our journey in this artistic world. Be it events, the gatherings, the celebrations, the media we have tried to cover it all. Have a look and enjoy!</p>
+                  </div>
+                </div>
+                <div class="portfolio-tab">
+                  <ul id="filters" class="clearfix">
+                    <li class="filter active" data-filter=".snippet, .design, .full-project">all</li>
+                    <li class="filter" data-filter=".snippet">Snippets</li>
+                    <li class="filter" data-filter=".design">Design</li>
+                    <li class="filter" data-filter=".full-project">Full Project</li>
+                  </ul>
+                </div>
+                <div class="portfolio-grid">
+                  <div class="portfolio snippet" data-cat="snippet">
+                    <div class="portfolio-wrapper first">
+                      <div class="portfolio-bg"></div>
+                      <div class="label">
+                        <div class="label-text">
+                          <h4>Project Name</h4>
+                          <span class="text-category">Snippet</span>
+                          <a href="#" class="template-btn" target="_blank">View</a>
+                        </div>
+                        <div class="label-bg"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio design" data-cat="design">
+                    <div class="portfolio-wrapper second">
+                      <div class="portfolio-bg"></div>
+                      <div class="label">
+                        <div class="label-text">
+                          <h4>Project Name</h4>
+                          <span class="text-category">Design</span>
+                          <a href="#" class="template-btn" target="_blank">View</a>
+                        </div>
+                        <div class="label-bg"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio full-project" data-cat="full-project">
+                    <div class="portfolio-wrapper third">
+                      <div class="portfolio-bg"></div>
+                      <div class="label">
+                        <div class="label-text">
+                          <h4>Project Name</h4>
+                          <span class="text-category">Full Project</span>
+                          <a href="#" class="template-btn" target="_blank">View</a>
+                        </div>
+                        <div class="label-bg"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio design" data-cat="design">
+                    <div class="portfolio-wrapper second">
+                      <div class="portfolio-bg"></div>
+                      <div class="label">
+                        <div class="label-text">
+                          <h4>Project Name</h4>
+                          <span class="text-category">Design</span>
+                          <a href="#" class="template-btn" target="_blank">View</a>
+                        </div>
+                        <div class="label-bg"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio full-project" data-cat="full-project">
+                    <div class="portfolio-wrapper third">
+                      <div class="portfolio-bg"></div>
+                      <div class="label">
+                        <div class="label-text">
+                          <h4>Project Name</h4>
+                          <span class="text-category">Full Project</span>
+                          <a href="#" class="template-btn" target="_blank">View</a>
+                        </div>
+                        <div class="label-bg"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio snippet" data-cat="snippet">
+                    <div class="portfolio-wrapper first">
+                      <div class="portfolio-bg"></div>
+                      <div class="label">
+                        <div class="label-text">
+                          <h4>Project Name</h4>
+                          <span class="text-category">Snippet</span>
+                          <a href="#" class="template-btn" target="_blank">View</a>
+                        </div>
+                        <div class="label-bg"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- MENU3-->
+        <div class="wrapper menu3" role="main" id="about">
+          <h2 class="contents-logo" itemprop="title">About Us</h2>
+          <div class="about"> ArtVista Born out of genuine interest and passion, artvista developer's interest and awareness in vivid facts of art like paintings, sculptures mural, ceramic art, wall painting, photographs, Art gifts and so on amongst the present art conscious fraternity. With our focus on long term association and the consequent collaborative actions we believe that we can work together to nurture talented artists and promote Indian Pure art globally. This enables us to work with partners towards positive results and outcome in association with one artist and the relatively of art buyers and collections Art Vista creates a great opportunity for artist to exhibit their works to thousands of viewers-both on-line and off- line. </div>
+        </div>
+        <!-- END-->
+        <!-- MENU4-->
+        <div class="wrapper menu4" role="main" id="contact">
+          <h2 class="contents-logo" itemprop="title">Contact Us</h2>
+          <div class="contacts">
+            <div class="form-main">
+              <div class="main-wrapper">
+                <h2 class="form-head">Contact From</h2>
+                <form class="form-wrapper">
+                  <div class="form-card">
+                    <input class="form-input" type="text" name="full_name" required="required" />
+                    <label class="form-label" for="full_name">Full Name</label>
+                  </div>
+                  <div class="form-card">
+                    <input class="form-input" type="email" name="email" required="required" />
+                    <label class="form-label" for="email">Email</label>
+                  </div>
+                  <div class="form-card">
+                    <input class="form-input" type="number" name="phone_number" required="required" />
+                    <label class="form-label" for="phone_number">Phone number</label>
+                  </div>
+                  <div class="form-card">
+                    <textarea class="form-textarea" maxlength="420" rows="3" name="phone_number" required="required"></textarea>
+                    <label class="form-textarea-label" for="phone_number">Address</label>
+                  </div>
+                  <div class="btn-wrap">
+                    <button> Submit </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END-->
+        <!-- END-->
+    </body>
+</html>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    var filterList = {
+      init: function() {
+        $('.portfolio-grid').mixItUp({
+          selectors: {
+            target: '.portfolio',
+            filter: '.filter'
+          },
+          load: {
+            filter: 'all' // show app tab on first load
+          }
+        });
+      }
+    };
+    // Run the show!
+    filterList.init();
+  });
+  $(document).ready(function() {
+    $('.menu-btn').click(function(event) {
+      $('.navbar-demo').toggleClass('open-nav');
+    });
+  });
+</script>
+</body>
+</html>
